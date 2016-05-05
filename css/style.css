@@ -71,6 +71,10 @@ header {
 }
 
 #notthing {
+    border-top: 3px solid #eeeeee;
+}
+
+#thing {
     border-top: 3px solid black;
 }
     
