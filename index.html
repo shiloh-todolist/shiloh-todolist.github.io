@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ToDo List</title>
+        <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css">
+      <link rel="icon" href="data:;base64,iVORwOKGgo">
+      
+            
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body class="grey lighten-3">
+        <header>
+            <nav class="blue-grey darken-1">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">ToDo List</a>
+                    <ul class="right">
+                      <li class="active"><a href="index.html">ToDo</a></li>
+                      <li><a href="login.html">Admin</a></li>
+                      <li><a href="create.html">Create a List</a></li>
+                      <li><a href="account.html">Account</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="parallax-container">
+                <div class="parallax"><img src="http://www.appigo.com/wp-content/uploads/2015/09/productivity-secrets.png" alt="" class="image_thing"></div>
+            </div>
+            <div class="container">
+                
+                <div class="row">
+                    <h1 class="center-align">ToDo List</h1>
+                </div>
+                <div class="row">
+                    <div class="col s12 main-container" id="working">
+                        
+                    </div>
+                </div> 
+            </div>
+        </main>
+        
+        <footer class="page-footer blue-grey darken-1">
+            <div class="container">
+                <p><a href="#">Back to the top</a></p>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    @2016 Mateo
+                </div>
+            </div>
+        </footer>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        
+        <script type="text/javascript" src="libs/backendless.js"></script>
+        
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>      
+
+        <script type="text/javascript" src="js/handlebars-v4.0.5.js"></script>
+        <script id="list-template" type="text/x-handlebars-template">
+            {{#each lists}}
+            {{#if completed}}
+                <div class="list-post z-depth-2" id="thing">
+                    <h2 class="list-post-title">{{title}}</h2>
+                    <p class="list-post-meta">At {{format created}} by {{authorEmail}}</p>
+                    <div>{{{content}}}</div>
+                    <div class="row morebuttons">
+                        <i class="btn waves-effect waves-light red darken-3 completeTask" data={{objectId}} style="z-index:0;" type="submit" name="action">Mark as complete</i><br>
+                        <i class="btn waves-effect waves-light cyan darken-1 undotwo" data={{objectId}} id="undotwo" style="z-index:0;" type="submit" name="action">Delete</i>
+                    </div>
+                </div>
+            {{else}}
+                <div class="list-post z-depth-2" id="notthing">
+                    <h2 class="list-post-title">{{title}}</h2>
+                    <p class="list-post-meta">At {{format created}} by {{authorEmail}}</p>
+                    <div>{{{content}}}</div>
+                    <div class="row morebuttons">
+                        <i class="btn waves-effect waves-light red darken-3 completeTask" data={{objectId}} style="z-index:0;">Mark as complete</i><br>
+                        <i class="btn waves-effect waves-light cyan darken-1 undotwo" data={{objectId}} id="undotwo" style="z-index:0;">Delete</i>
+                    </div>
+                </div>
+            {{/if}}
+            {{/each}}
+        </script>
+    </body>
+</html>
